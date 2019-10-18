@@ -1,0 +1,18 @@
+{
+  "name": "@ac-react-boilerplate/api",
+  "version": "1.0.0",
+  "main": "server-dev.js",
+  "description": "API server for AC React Boilerplate",
+  "author": "Abdullah Ceylan <ben@abdullahceylan.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon node server-dev.js",
+    "start": "export NODE_ENV=production; node server-dev.js"
+  },
+  "dependencies": {
+    "boxen": "^4.1.0",
+    "chalk": "^2.4.2",
+    "express": "^4.17.1",
+    "nodemon": "^1.19.4"
+  }
+}

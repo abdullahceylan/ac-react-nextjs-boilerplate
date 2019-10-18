@@ -1,0 +1,31 @@
+{
+  "name": "ac-react-nextjs-boilerplate",
+  "version": "1.0.0",
+  "main": "server.js",
+  "description": "A serverless React SSR boilerplate built with React.js, styled-components, next.js, now",
+  "author": "Abdullah Ceylan <ben@abdullahceylan.com>",
+  "license": "MIT",
+  "private": true,
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ]
+  },
+  "scripts": {
+    "dev": "concurrently --kill-others \"yarn workspace @ac-react-boilerplate/www dev\" \"yarn workspace @ac-react-boilerplate/api dev\"",
+    "dev:www": "concurrently --kill-others \"yarn workspace @ac-react-boilerplate/www dev\"",
+    "dev:api": "concurrently --kill-others \"yarn workspace @ac-react-boilerplate/api dev\"",
+    "start:www": "concurrently --kill-others \"yarn workspace @ac-react-boilerplate/www start\"",
+    "start:api": "concurrently --kill-others \"yarn workspace @ac-react-boilerplate/api start\"",
+    "env": "yarn scripts/env",
+    "format": "yarn workspaces run format",
+    "reset": "rimraf 'yarn.lock' 'node_modules' '**/node_modules' && yarn"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "concurrently": "^4.1.0",
+    "cross-env": "^5.2.0",
+    "prettier": "^1.16.0",
+    "rimraf": "^3.0.0"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "name": "ac-react-nextjs-boilerplate",
+  "version": 2,
+  "builds": [
+    {
+      "src": "packages/app/routes/**/*.js",
+      "use": "@now/node",
+      "config": {"maxLambdaSize": "15mb"}
+    },
+    {
+      "src": "packages/www/package.json",
+      "use": "@now/next"
+    }
+  ],
+  "public": true,
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/packages/app/routes/api"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/packages/www/$1"
+    }
+  ]
+}
