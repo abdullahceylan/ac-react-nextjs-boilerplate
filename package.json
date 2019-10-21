@@ -19,12 +19,18 @@
     "start:api": "concurrently --kill-others \"yarn workspace @ac-react-boilerplate/api start\"",
     "env": "yarn scripts/env",
     "format": "yarn workspaces run format",
-    "reset": "rimraf 'yarn.lock' 'node_modules' '**/node_modules' && yarn"
+    "reset": "rimraf 'yarn.lock' 'node_modules' '**/node_modules' && yarn",
+    "restore": "node scripts/restore",
+    "backup": "node scripts/backup"
   },
-  "dependencies": {},
+  "dependencies": {
+    "firestore-export-import": "^0.2.9"
+  },
   "devDependencies": {
+    "chalk": "2.3.0",
     "concurrently": "^4.1.0",
     "cross-env": "^5.2.0",
+    "dotenv": "4.0.0",
     "prettier": "^1.16.0",
     "rimraf": "^3.0.0"
   }

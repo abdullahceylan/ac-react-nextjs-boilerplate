@@ -1,5 +1,5 @@
 # Dependency directory
-node_modules
+node_modules/
 
 # Optional npm cache directory
 .npm
@@ -8,14 +8,35 @@ node_modules
 # Optional REPL history
 .node_repl_history
 
-# vscode files
-.vscode
+# VSCode files
+.vscode/*
+!.vscode/snippets
+!.vscode/launch.json
+!.vscode/settings.json
 
-.env
-.next
-dist
+# Build output
+build/
+.next/
+dist/
+
+# Testing
+coverage/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+firebase-debug.log*
+firebase-error.log*
+
+# Firebase config folder
+.firebase
+
+# Other
 NOTES.md
-
-export-map.json
-*.log
-npm-debug.log
+.env
+.DS_Store
+.idea
+.envs/
+.backups/
+firebase-service-account.json

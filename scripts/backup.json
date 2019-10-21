@@ -1,0 +1,42 @@
+{
+  "cities": [
+    {
+      "country": "tur",
+      "tags": [],
+      "featured": false,
+      "author": "abdullah",
+      "url": "/city/ankara",
+      "date": "2019-10-21",
+      "name": "Ankara",
+      "plate": "06",
+      "changed": 1516278956458,
+      "status": "published"
+    },
+    {
+      "country": "uk",
+      "tags": [],
+      "featured": false,
+      "author": "abdullah",
+      "url": "/city/london",
+      "date": "2019-10-21",
+      "name": "London",
+      "plate": "LND",
+      "changed": 1516278956458,
+      "status": "published"
+    }
+  ],
+  "coutries": [
+    {
+      "id": "1",
+      "area_code": "90",
+      "short": "tur",
+      "title": "Turkey"
+    },
+    {
+      "id": "2",
+      "area_code": "44",
+      "short": "uk",
+      "title": "Turkey"
+    }
+  ]
+}

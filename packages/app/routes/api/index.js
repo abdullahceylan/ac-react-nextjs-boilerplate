@@ -28,6 +28,54 @@ try {
     });
   });
 
+  // server.get("/cities/*", (req, res) => {
+  //   app.render(req, res, "/post", {
+  //     fullUrl: req.originalUrl
+  //   });
+  // });
+
+  server.get('/api/cities', (req, res) => {
+    req.firebaseServer
+      .collection(`cities`)
+      .get()
+      .then(snapshot => {
+        const cities = [];
+
+        snapshot.forEach(doc => {
+          cities.push(doc.data());
+        });
+
+        res.json({ cities });
+      })
+      .catch(error => {
+        res.json({ error });
+      });
+  });
+
+  server.get('/api/city/:name', (req, res) => {
+    req.firebaseServer
+      .collection(`cities`)
+      .get()
+      .then(snapshot => {
+        let city = {};
+        const { name } = req.params;
+
+        snapshot.forEach(doc => {
+          const data = doc.data();
+          console.log('data', data);
+          console.log('req.params', req.params);
+          if (name && data.name.toLowerCase() === name.toLowerCase()) {
+            city = data;
+          }
+        });
+
+        res.json({ ...city });
+      })
+      .catch(error => {
+        res.json({ error });
+      });
+  });
+
   server.get('*', (req, res) => {
     return handle(req, res);
   });

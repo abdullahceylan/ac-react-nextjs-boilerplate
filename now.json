@@ -5,7 +5,7 @@
     {
       "src": "packages/app/routes/**/*.js",
       "use": "@now/node",
-      "config": {"maxLambdaSize": "15mb"}
+      "config": { "maxLambdaSize": "15mb" }
     },
     {
       "src": "packages/www/package.json",
@@ -19,8 +19,31 @@
       "dest": "/packages/app/routes/api"
     },
     {
+      "src": "/city/(?<name>[^/]+)$",
+      "dest": "/packages/www/city?name=$name"
+    },
+    {
+      "src": "/(.*\\.(js|jpg|json|css|ico|png)$)",
+      "dest": "/packages/www/$1",
+      "headers": { "cache-control": "public,max-age=31536000,immutable" }
+    },
+    {
       "src": "/(.*)",
-      "dest": "/packages/www/$1"
+      "dest": "/packages/www/$1",
+      "headers": { "cache-control": "public, max-age=0, must-revalidate" }
     }
-  ]
+  ],
+  "env": {
+    "FB_PROJECT_ID": "your-project-id",
+    "FB_AUTH_DOMAIN": "your-project-id.firebaseapp.com",
+    "FB_API_KEY": "YOUR API KEY"
+  },
+  "build": {
+    "env": {
+      "FB_PROJECT_ID": "your-project-id",
+      "FB_AUTH_DOMAIN": "your-project-id.firebaseapp.com",
+      "FB_API_KEY": "YOUR API KEY"
+    }
+  
+  }
 }

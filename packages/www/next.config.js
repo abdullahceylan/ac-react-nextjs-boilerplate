@@ -1,22 +1,20 @@
-const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+require('dotenv').config();
+const webpack = require('webpack');
 
-const isProd = process.env.NODE_ENV === 'production';
-const cdnHost = process.env.CDN_HOST || false;
-
-/* eslint-disable */
 module.exports = {
-  poweredByHeader: false,
-  assetPrefix: isProd && cdnHost ? cdnHost : '',
-  webpack: function(config) {
-    if (process.env.ANALYZE) {
-      config.plugins.push(
-        new BundleAnalyzerPlugin({
-          analyzerMode: 'server',
-          analyzerPort: 8888,
-          openAnalyzer: true,
-        }),
-      );
-    }
+  webpack: config => {
+    config.plugins.push(
+      new webpack.DefinePlugin({
+        'process.env.FB_PROJECT_ID': JSON.stringify(process.env.FB_PROJECT_ID),
+        'process.env.FB_AUTH_DOMAIN': JSON.stringify(process.env.FB_AUTH_DOMAIN),
+        'process.env.FB_API_KEY': JSON.stringify(process.env.FB_API_KEY),
+      }),
+    );
     return config;
+  },
+  env: {
+    FB_PROJECT_ID: process.env.FB_PROJECT_ID,
+    FB_AUTH_DOMAIN: process.env.FB_AUTH_DOMAIN,
+    FB_API_KEY: process.env.FB_API_KEY,
   },
 };
