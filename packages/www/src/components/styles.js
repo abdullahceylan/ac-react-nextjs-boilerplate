@@ -30,9 +30,11 @@ body {
   text-rendering: optimizeLegibility;
   hyphens: auto;
 }
+
 h2, h3, h4 {
   margin-top: 1.5em;
 }
+
 a {
   cursor: pointer;
   color: #0076FF;
@@ -40,22 +42,28 @@ a {
   transition: all 0.2s ease;
   border-bottom: 1px solid white;
 }
+
 a:hover {
   border-bottom: 1px solid #0076FF;
 }
+
 ul, ol {
   padding: 0;
   margin-left: 1.5em;
 }
+
 ul {
   list-style-type: none;
 }
+
 li {
   margin-bottom: 10px;
 }
+
 ul li:before {
   content: '–';
 }
+
 li:before {
   display: inline-block;
   color: #999;
@@ -68,14 +76,17 @@ code, pre {
   font-size: .92em;
   color: #D400FF;
 }
+
 code:before, code:after {
   content: '\`';
 }
+
 blockquote {
   margin: 1.6em 0;
   padding: 5px 24px;
   background: #efefef;
 }
+
 input, button, textarea
 {
   margin: 0;
@@ -90,6 +101,7 @@ input, button, textarea
   font-family: inherit;
   transition: all 0.2s ease;
 }
+
 button {
   padding: .65em 1em;
   background: #0076ff;
@@ -114,9 +126,11 @@ button:disabled {
   pointer-events: none;
   background: #999;
 }
+
 img {
   max-width: 100%;
 }
+
 textarea {
   min-height: 300px;
   width: 100%;
@@ -124,6 +138,7 @@ textarea {
   margin: 1.4em 0;
   box-sizing: border-box;
 }
+
 hr {
   border: none;
   border-bottom: 1px solid #efefef;
