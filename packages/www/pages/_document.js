@@ -1,8 +1,8 @@
 import React from 'react';
 import Document, { Head, Main, NextScript } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
-import { miniGlobalCSS, miniFontLoader } from '@utils/helpers';
-import { globalStyles } from '../src/components/styles';
+import { miniGlobalCSS } from '@utils/helpers';
+import { globalStyles, GlobalNormalize } from '../src/components/styles';
 
 const cdnHost = process.env.CDN_HOST || '.';
 
@@ -37,11 +37,8 @@ export default class CustomDocuments extends Document {
       <html>
         <Head>
           <meta charSet="utf-8" />
-          <link
-            href="https://fonts.googleapis.com/css?family=Quicksand:300,400,700"
-            rel="stylesheet"
-          />
           {this.props.styles}
+          <GlobalNormalize />
           <style dangerouslySetInnerHTML={{ __html: miniGlobalCSS(globalStyles) }} />
         </Head>
         <body>
