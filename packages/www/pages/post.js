@@ -1,35 +1,18 @@
 import { useEffect, useState } from 'react';
 import Head from 'next/head';
+import { fetchContentTypes, fetchEntriesForContentType } from '@utils/contentful';
 import Post from '@components/Post';
 
-const client = require('contentful').createClient({
-  space: process.env.CONTENTFUL_SPACE_ID,
-  accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
-});
-
 function PostPage() {
-  async function fetchContentTypes() {
-    const types = await client.getContentTypes();
-    if (types.items) return types.items;
-    console.log('Error getting Content Types.');
-  }
-
-  async function fetchEntriesForContentType(contentType) {
-    const entries = await client.getEntries({
-      content_type: contentType.sys.id,
-    });
-    if (entries.items) return entries.items;
-    console.log(`Error getting Entries for ${contentType.name}.`);
-  }
-
   const [posts, setPosts] = useState([]);
 
+  const getPosts = async () => {
+    const contentTypes = await fetchContentTypes();
+    const allPosts = contentTypes ? await fetchEntriesForContentType(contentTypes[0]) : [];
+    setPosts([...allPosts]);
+  };
+
   useEffect(() => {
-    async function getPosts() {
-      const contentTypes = await fetchContentTypes();
-      const allPosts = await fetchEntriesForContentType(contentTypes[0]);
-      setPosts([...allPosts]);
-    }
     getPosts();
   }, []);
 

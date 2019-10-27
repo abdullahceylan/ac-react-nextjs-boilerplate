@@ -41,3 +41,4 @@ NOTES.md
 .envs/
 .backups/
 firebase-service-account.json
+.contentful.json
